@@ -6,6 +6,11 @@ Simple demo using Mongodb, Express, AngularJs, and NodeJs
 
 Steps to get started:
 
+===========================================================================================
+Part 1: Create a simple web server using NodeJs
+
+===========================================================================================
+
 1. Download and install NodeJS
 
   http://nodejs.org/
@@ -81,7 +86,7 @@ Steps to get started:
    Put something in it like "Hello World"
 
 
-5. Run your webserver
+5. Run your webserver (Use Chrome for all examples as we will use chrome plugins later on)
 
    From this directory (mean-demo), type from a command prompt:
 
@@ -155,7 +160,12 @@ Steps to get started:
   </div>
 
 
-8. Download and include AngularJS
+===========================================================================================
+  Part 2: Get to know AngularJS
+
+===========================================================================================
+
+1. Download and include AngularJS
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
 
@@ -183,8 +193,11 @@ Steps to get started:
  </html>
 
 
+2. Download AngularJS Batarang into Chrome
+   Turn this on and use it to walk through what is going on in the AngualarJS app
 
-9. Go through example on AngularJS Main page:
+
+3. Go through a more complex example on AngularJS Main page:
 
   html
   ------------
@@ -262,14 +275,18 @@ Steps to get started:
    Walk through and explain what is going on
 
 
-   Optionally use Chrome and download AngularJS Batarang
-   Turn this on and use it to walk through what is going on in the AngualarJS app
+===========================================================================================
+  Part 3: Get Mongodb
+
+===========================================================================================
+
+1. Download and install Mongodb
+
+  * MongoDB - Download and Install [MongoDB](http://www.mongodb.org/downloads)
 
 
-10. Download and install Mongodb
-
-  * MongoDB - Download and Install [MongoDB](http://www.mongodb.org/downloads) - Make sure it's running on the default port (27017).
-
+2. Download and install Robomongo
+   (Used to interact with your monogodb - easier than using the command line)
 
 11. Run mongo db
 
@@ -277,6 +294,7 @@ Steps to get started:
 
   mongod
 
+  this will start mongodb on the default port 27017
 
 12. Install mongoose which is the npm module used to connect to mongodb
 
@@ -285,6 +303,83 @@ Steps to get started:
   npm install mongoose
 
 
+===========================================================================================
+  Part 4: Create a REST client using Nodejs, and Mongodb
+
+===========================================================================================
+
+1. Design your REST api
+   GET /todos
+   POST /todos
+   PUT /todos/:id
+   DELETE /todos/:id
+   GET /todos/:id
+
+
+2. Create a todo.js file that will hold your model.
+   use this structure: mean-demo->app->models
+   This will represent the a todo document in your monogodb
+
+
+3. Create a todo-routes.js file that will have the routes that the REST api will connect to
+   use this structure: mean-demo->app->routes
+
+
+4. install another node module that will be needed to parse the request bodys and turn them into json
+  (explain json, how cool it is)
+
+  From this directory (mean-demo), type from a command prompt:
+
+  npm install body-parser
+
+
+5. Add the routes to your nodejs server
+
+
+6. Test the routes out: First download and install
+  "Advanced REST Client" for chrome extension
+
+  Send a POST to
+    http://127.0.0.1:8000/todos
+
+  with this in the body:
+
+    {"text": "hello world", "done": "0"}
+
+  note: double quotes on both sides are important
+
+  (using application/json format)
+
+  Open up robomongo to make sure the documents have been added
+
+  Send a GET to
+    http://127.0.0.1:8000/todos
+
+   this should be a list of all your todos
+
+
+
+===========================================================================================
+  Part 5: Link the AngularJS app to Node
+
+===========================================================================================
+
+
+
+
+
+
+===========================================================================================
+  Part 6: Explain some tips/best practices when designing an app
+
+===========================================================================================
+
+
+1. Use a package.json
+
+2. Minify/Uglify code
+
+3. Use a repository
 
 
 

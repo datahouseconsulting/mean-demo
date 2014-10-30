@@ -5,41 +5,30 @@ var express = require('express');
 var path = require('path');
 
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
 
-
-//Bootstrap the db connection
+// connect to the mongodb database
+// if no database by this name (mean-demo) exists, it will create one on the first insert
 var db = mongoose.connect("mongodb://localhost/mean-demo");
 
 // add in all the models to be used in the application
-models = require('./app/models/todo');
-
-
-
+require('./app/models/todo');
 
 // Create a new express object that becomes our webserver
 var app = express();
 
-
-// configure express to work how  you want it to
-app.use(express.urlencoded());
-app.use(express.json());
-app.use(express.methodOverride());
-
-//routes should be at the last
-app.use(app.router);
+// this lets express parse the body of requests and gives them to you as json
+app.use(bodyParser.json());
 
 // line that will make any request to the server point to the public directory
 // __dirname is a keyword that will return the current directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
 // add in the routes that node will allow
-var articleRoutes = require('./app/routes/todo-routes');
-app.get('/articles', articleRoutes.getArticleList);
-app.post('/articles', articleRoutes.createArticle); //
-
-
+var todoRoutes = require('./app/routes/todo-routes');
+app.get('/todos', todoRoutes.getTodoList);
+app.post('/todos', todoRoutes.createTodo); //
 
 
 //Start the app by listening on port 8000

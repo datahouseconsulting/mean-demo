@@ -9,6 +9,7 @@ var path = require('path');
 var app = express();
 
 // line that will make any request to the server point to the public directory
+// __dirname is a keyword that will return the current directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 

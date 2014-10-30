@@ -277,7 +277,16 @@ Steps to get started:
 
   mongod
 
-12. Connect Node to mongodb
+
+12. Install mongoose which is the npm module used to connect to mongodb
+
+  From this directory (mean-demo), type from a command prompt:
+
+  npm install mongoose
+
+
+
+
 
 
 

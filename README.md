@@ -10,6 +10,30 @@ Steps to get started:
 
   http://nodejs.org/
 
+  A.  Verify your node.js can be run from anywhere
+      Open up a windows command prompt and type:
+
+        node -v
+
+      This should give you the version of node you are running.
+      If you get something like this:
+
+        'node' is not recognized as an internal or external command,
+        operable program or batch file.
+        you will have to add it to your system path
+
+  B.  Add node.js to your system path (if needed - check above)
+      Search for where your node is located and remember/copy/save the path there.
+      For instance, mines is located in:  C:\Program Files\nodejs
+
+      Go to Control Panel -> System -> Advanced System Settings
+      Click on Environment Variables
+      edit this variable: PATH
+      Add your nodejs location to the end of it:
+      ;C:\Program Files\nodejs
+      (dont forget the semicolon in the beginning - this separates the different paths you can add)
+      (this may require you to restart your computer)
+
 
 2. Install ExpressJs from NPM
   (Main NPM site: https://www.npmjs.org/)
@@ -116,6 +140,155 @@ Steps to get started:
       <li><a href="#">Separated link</a></li>
     </ul>
   </div>
+
+  example of reponsive columns (http://getbootstrap.com/css/):
+  (i added the background colors to see it better)
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8" style="background-color: lightgray;">.col-xs-12 .col-sm-6 .col-md-8</div>
+    <div class="col-xs-6 col-md-4"  style="background-color: yellow;">.col-xs-6 .col-md-4</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 col-sm-4" style="background-color: cornflowerblue;">.col-xs-6 .col-sm-4</div>
+    <div class="col-xs-6 col-sm-4" style="background-color: cadetblue;">.col-xs-6 .col-sm-4</div>
+    <div class="col-xs-6 col-sm-4" style="background-color: lightblue;">.col-xs-6 .col-sm-4</div>
+  </div>
+
+
+8. Download and include AngularJS
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+
+  make sure you have html/head/body tags
+  add ng-app to the html tag
+
+  here is a simple example of databinding
+
+  https://angularjs.org/
+
+
+ <!doctype html>
+ <html ng-app>
+   <head>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+   </head>
+   <body>
+     <div>
+       <label>Name:</label>
+       <input type="text" ng-model="yourName" placeholder="Enter a name here">
+       <hr>
+       <h1>Hello {{yourName}}!</h1>
+     </div>
+   </body>
+ </html>
+
+
+
+9. Go through example on AngularJS Main page:
+
+  html
+  ------------
+  <!doctype html>
+  <html ng-app="todoApp">
+    <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+      <script src="todo.js"></script>
+      <link rel="stylesheet" href="todo.css">
+    </head>
+    <body>
+      <h2>Todo</h2>
+      <div ng-controller="TodoController">
+        <span>{{remaining()}} of {{todos.length}} remaining</span>
+        [ <a href="" ng-click="archive()">archive</a> ]
+        <ul class="unstyled">
+          <li ng-repeat="todo in todos">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+          </li>
+        </ul>
+        <form ng-submit="addTodo()">
+          <input type="text" ng-model="todoText"  size="30"
+                 placeholder="add new todo here">
+          <input class="btn-primary" type="submit" value="add">
+        </form>
+      </div>
+    </body>
+  </html>
+
+  --------
+
+  js
+  ---------
+  angular.module('todoApp', [])
+    .controller('TodoController', ['$scope', function($scope) {
+
+      $scope.todos = [
+        {text:'learn angular', done:true},
+        {text:'build an angular app', done:false}];
+
+      $scope.addTodo = function() {
+        $scope.todos.push({text:$scope.todoText, done:false});
+        $scope.todoText = '';
+      };
+
+      $scope.remaining = function() {
+        var count = 0;
+        angular.forEach($scope.todos, function(todo) {
+          count += todo.done ? 0 : 1;
+        });
+        return count;
+      };
+
+      $scope.archive = function() {
+        var oldTodos = $scope.todos;
+        $scope.todos = [];
+        angular.forEach(oldTodos, function(todo) {
+          if (!todo.done) $scope.todos.push(todo);
+        });
+      };
+
+
+    }]);
+    -------
+
+    css
+    -------
+    .done-true {
+      text-decoration: line-through;
+      color: grey;
+    }
+    ---------
+
+   Walk through and explain what is going on
+
+
+   Optionally use Chrome and download AngularJS Batarang
+   Turn this on and use it to walk through what is going on in the AngualarJS app
+
+
+10. Download and install Mongodb
+
+  * MongoDB - Download and Install [MongoDB](http://www.mongodb.org/downloads) - Make sure it's running on the default port (27017).
+
+
+11. Run mongo db
+
+  open a command prompt and type in:
+
+  mongod
+
+12. Connect Node to mongodb
+
+
+
+
+
+
+
+
+
+
+
 
 
 

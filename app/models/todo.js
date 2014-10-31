@@ -21,8 +21,8 @@ var TodoSchema = new mongoose.Schema({
         trim: true
     },
     done: {
-        type: String,
-        default: '0',
+        type: Boolean,
+        default: false,
         trim: true
     }
 });

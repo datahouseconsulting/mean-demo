@@ -344,7 +344,7 @@ Part 1: Create a simple web server using NodeJs
 
   with this in the body:
 
-    {"text": "hello world", "done": "0"}
+    {"text": "hello world", "done": false}
 
   note: double quotes on both sides are important
 
@@ -364,22 +364,47 @@ Part 1: Create a simple web server using NodeJs
 
 ===========================================================================================
 
+1. Put everything into more of a structured directory
+
+   public->features->global->app.js
 
 
+2. Turn the main angular app into a variable that can be added to:
 
+  var todoApp = angular.module('todoApp', []);
+
+
+3. Create an angular service you can use to make http requests
+
+  public->features->todo->todo-node-service.js
+
+
+4. Link that service into the main Controller for the page, to pull the list
+  of todos, and also to create new ones.
+
+
+5. Play with it having chromes dev tools open to watch network traffic, console.logs
 
 
 ===========================================================================================
-  Part 6: Explain some tips/best practices when designing an app
+  Part 6: Go over different tools, ways to organize your app
 
 ===========================================================================================
-
 
 1. Use a package.json
+  Explain the package.json
 
-2. Minify/Uglify code
+2. Config files for different environments
+  ports/urls are hardcoded in the mean-demo - probably better to move those out later on
 
-3. Use a repository
+3. Bower install bower and how this can be used to manage ur js libraries
+  npm
+
+4. example of third party library to just pull in - Toastr using bower
+
+
+
+
 
 
 

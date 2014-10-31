@@ -391,16 +391,18 @@ Part 1: Create a simple web server using NodeJs
 
 ===========================================================================================
 
-1. Use a package.json
+1. Using Git (most projects/libraries use git)
+
+2. Use a package.json
   Explain the package.json
 
-2. Config files for different environments
+3. Config files for different environments
   ports/urls are hardcoded in the mean-demo - probably better to move those out later on
 
-3. Bower install bower and how this can be used to manage ur js libraries
+4. Bower install bower and how this can be used to manage ur js libraries
   npm
 
-4. example of third party library to just pull in - Toastr using bower
+5. example of third party library to just pull in - Toastr using bower
 
 
 

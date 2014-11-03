@@ -36,5 +36,3 @@ app.listen(8000);
 
 // display output so that we know the server was started successfully
 console.log('Express app started on port 8000');
-
-

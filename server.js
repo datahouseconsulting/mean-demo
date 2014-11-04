@@ -14,9 +14,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //Start the app by listening on port 8000
-app.listen(8000);
+var port = process.env.PORT || 8000;
+app.listen(port);
 
 // display output so that we know the server was started successfully
-console.log('Express app started on port 8000');
+console.log('Express app started on port ' + port);
 
 

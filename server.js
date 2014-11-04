@@ -19,5 +19,5 @@ var todoRoutes = require('./app/routes/todo-routes');
 app.post('/api/todo', todoRoutes.create); 
 app.get('/api/todo', todoRoutes.list);
 
-app.listen(8000);
-
+var port = process.env.PORT || 8000;
+app.listen(port);

@@ -3,19 +3,16 @@ angular.module('app', ['ngResource'])
 
     var Todo = $resource('/api/todo');
 
-    $scope.todoList = [];
-
-    Todo.query(function(result){
-      $scope.todoList = result; 
-    });
+    $scope.todoList = [
+      { text: 'Buy Milk'},
+      { text: 'Pick up kids from school'},
+      { text:  'Go to the bank'}
+    ];
 
     $scope.add = function() {
       var todo = new Todo();
       todo.text = $scope.newTodo;
-      todo.$save(function(result) {
-        $scope.todoList.push(result); 
-        $scope.newTodo = '';
-      });
+      todo.$save();
     };
 
   }]);

@@ -1,0 +1,103 @@
+Node JS
+  Node is a javascript server framework that runs on the Google V8 Javascript engine.
+
+  ** Create server.js [server-01.js]
+
+NPM
+  Node Package Manager is a collection of modules that other people have developed and posted for free use.
+  It is one of the fastest growing repositories.
+  When you install Node, Npm should be installed also
+
+  We will be using a module called ExpressJs, which is a middleware framework. Express can handle the requests and responses.
+
+  **npm install express
+
+  **update the server.js file [server-02.js]
+
+  That's great, but not very useful, let's build a basic route
+
+  **update server.js file [server-03.js]
+
+  So now we have a basic route, but instead lets serve up a basic html page.
+
+  **update server.js file [server-04.js]
+
+  **create public/ directory
+
+  **create index.html file [index-01.html]
+
+AngularJS
+
+  Angular is a client side MVC framework built by Google. All of the code lives on the client (aka the browser)
+
+  To show you the basic's lets change our Hello World application, into a todo list.
+
+  ** update index.html file [index-02.html]
+
+  Okay, now that we have the basic structure of our todo list,
+  Build a controller for our todo list.
+
+  ** create todo.js [todo-01.js]
+
+  $scope is the binding/connector between the controller and the view. 
+  Let's add our todo list onto the scope of our controller
+
+  ** update todo.js [todo-02.js]
+
+  Now we need to add our controller to the index.html file so your client can use it
+
+  ** update index.html [index-03.html]
+    ** add ng-app
+    ** first add headers
+    ** add ng-controller
+    ** add ng-repeat
+    ** add data binding {{todo}}
+
+  Let's build our to do list a little bit more dynamically. Say we need to Add a new item to our list.
+
+  ** update index.html [index-04.html]
+
+  ** update todo.js [todo-02.js]
+
+  Update to clear out the input field every time you add a new item
+  ** update todo.js [todo-03.js]
+
+
+  We now have a basic angular application using a controller to display what is on our todo list.
+  But it's not a very useful application, the todo list is cleared everytime I refresh the page.
+  We need to store this information in a database... perhaps MongoDB
+
+  First thing we need to do is to send our todo list from Angular and back to our Server.
+  Remember, the list currently only exists inside of Angular (on the client)
+
+  **update index.html to use ngResource [index-04.html]
+  **update todo.js [todo-04.js] 
+  
+ Now we need to make the routes on the server side (Node/Express)
+
+ ** npm install body-parser
+
+ ** update server.js file [server-05.js]
+ ** Create the app, app/services, app/model, app/routes directories
+ ** Create the Todo Model [todo.js]
+ ** move basic route to routes file [todo-routes-01.js]
+ ** update server to use new route [server-06.js]
+ ** npm install mongoose
+ ** update server to use mongoose [server-06.js]
+
+ Now we have it successfully saving to Mongo and we can clean up what happens on the frontend
+
+ ** update todo.js [todo-05.js]
+
+ Ideally, when you load your web application, you want to be able to pull all of the todo items from your page.
+ Lets build that in.
+
+ **update todo [todo-06.js]
+
+ Now when the page loads, it's going to make a request to go a list of all the todo items
+ We need to now build that route on the server side.
+
+ ** update server.js [server-07.js];
+ ** update todo-routes.js [todo-routes-02.js]
+
+

@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 //======================================================================================
-// Setup mongo event handlers.
+// Setup Mongo event handlers.
 //======================================================================================
 
 // Add error handler when unable to establish a mongodb connection.
@@ -16,13 +16,13 @@ mongoose.connection.on('error', function (error) {
   mongoose.disconnect();
 });
 
-// add a handler for the connected event.
+// Add a handler for the connected event.
 mongoose.connection.on('connected', function() {
   console.log('Connected to MongoDB');
 });
 
 //======================================================================================
-// if the demo environment variable is set. use the ops works settings
+// If the demo environment variable is set. use the ops works settings
 // to establish the database connection.
 //======================================================================================
 if (process.env.NODE_ENV && process.env.NODE_ENV == 'demo') {

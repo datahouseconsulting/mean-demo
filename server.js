@@ -86,7 +86,7 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 8000;
 
 //======================================================================================
-// Setup your routes.
+// Setup the routes.
 //======================================================================================
 app.get('/hello', function(request, response){
   response.send('Hello World');

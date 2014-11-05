@@ -63,10 +63,10 @@ if (process.env.NODE_ENV && process.env.NODE_ENV == 'demo') {
   }
 }
 //======================================================================================
-// Running locally. Connect to a local mongo database.
+// Running locally. Connect to a local Mongo database.
 //======================================================================================
 else {
-  // establish the mongo connection.
+  // establish the Mongo connection.
   mongoose.connect('mongodb://localhost/mean-demo');
 }
 

@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 
 //======================================================================================
 // Setup Mongo event handlers.
+// Adding some comments.
 //======================================================================================
 
 // Add error handler when unable to establish a mongodb connection.

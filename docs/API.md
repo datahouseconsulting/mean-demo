@@ -138,6 +138,30 @@ OR
     <Stack Trace>
 
 
+## 3) Get an application:
+
+    GET /api/applications/<application id>
+
+#### Results:
+
+    HTTP Status 200
+
+    {
+      "title": "some title",
+      "objective": "some objective",
+      "description": "some description",
+      "status": "some status",
+      "_id": "545c6759702eef12041a0141",
+      "__v": 0
+    }
+
+OR
+
+    HTTP Status 500
+
+    <Stack Trace>
+
+
 Files
 ====================================================================
 ____________________________________________________________________

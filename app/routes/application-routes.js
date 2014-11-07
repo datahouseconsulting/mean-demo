@@ -49,3 +49,28 @@ exports.list = function (req, res, next) {
     return res.json(apps);
   });
 };
+
+/**
+ * Gets an application by its id.
+ * @param req
+ * @param res
+ * @param next
+ * @returns {*}
+ */
+exports.getApplication = function (req, res, next) {
+  // make sure the id is provided.
+  if (!req.params.id || req.params.id.length == 0) {
+    return next(new Error('Missing application id in request parameters.'));
+  }
+
+  // query for the app.
+  Application.findById(req.params.id, function (err, app) {
+    // check if an error occurred.
+    if (err) {
+      return next(err)
+    }
+
+    // return the app.
+    return res.json(app);
+  });
+};

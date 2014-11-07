@@ -1,12 +1,105 @@
 <!-- user profile -->
-<div ng-show="page == 'user'">
+<div ng-show="page.visiblePage == 'user'">
 
 <div style='margin-top: 20px;'>
 
-  <div class='row' style='font-size: 20px;'>
-    <div class='col-xs-3 thin-border overflow-hidden blue-background' style='padding: 10px; height: 50px;'>Application Guidelines</div>
+  <div class='row' style='font-size: 23px;'>
+    <div class='col-xs-3 thin-border overflow-hidden clickable blue-background' ng-click="page.visiblePage = 'guidelines'" style='padding: 10px; height: 50px;'>Application Guidelines</div>
     <div class='col-xs-3 thin-border overflow-hidden' style='padding: 10px; height: 50px; font-weight: bold; border-bottom: none;'>User Profile</div>
-    <div class='col-xs-3 thin-border overflow-hidden blue-background' style='padding: 10px; height: 50px;'>Application</div>
+    <div class='col-xs-3 thin-border overflow-hidden clickable blue-background' ng-click="page.visiblePage = 'application'" style='padding: 10px; height: 50px;'>Application</div>
+    <div class='col-xs-3 thin-border' style="height: 50px; border-top: none; border-right: none; border-left: none;"></div>
+  </div>
+
+  <div class='row thin-border' style='border-top: none; padding: 20px; font-size: 20px;'>
+
+    <div class='col-xs-12' style='height: 40px; background-color: black; color: white; font-size: 27px;'>
+      Researcher Information
+    </div>
+
+    <div class='col-xs-12'  style='background-color: orange; height: 2px; margin-top: 10px;'>
+    </div>
+
+
+    <div class='col-xs-12' style='margin-top: 10px;'>
+      Please ensure that your contact information is up-to-date. All communication from HIDOE
+      related to your application will be sent to the contact information below. 
+      <span style='font-style: italic;'>
+      If you need to update or edit any of the contact information below, click <a href=''>
+      here
+      </a>.
+      </span>
+    </div>
+
+
+    <div class='col-xs-12'  style='background-color: orange; height: 2px; margin-top: 10px; margin-bottom: 10px;'>
+    </div>
+
+
+
+
+    <div class='col-xs-2'  style='background-color: #C2FFC2; font-weight: bold; border-top: 1px solid green; border-bottom: 1px solid green; border-right: 1px solid green; min-height: 48px; padding-top: 10px;'>
+      Name
+    </div>
+    <div class='col-xs-10'  style=' border-top: 1px solid green; border-bottom: 1px solid green; padding: 5px; min-height: 48px;'>
+      <input type='text' ng-model='user.name' class='form-control'>
+    </div>
+    <div class='col-xs-2'  style='background-color: #C2FFC2; font-weight: bold; border-top: 1px solid green; border-bottom: 1px solid green; border-right: 1px solid green; min-height: 48px; padding-top: 10px;'>
+      Address
+    </div>
+    <div class='col-xs-10'  style=' border-top: 1px solid green; border-bottom: 1px solid green; padding: 5px; min-height: 48px;'>
+      <input type='text' ng-model='user.address' class='form-control'>
+    </div>
+
+    <div class='col-xs-2'  style='background-color: #C2FFC2; font-weight: bold; border-top: 1px solid green; border-bottom: 1px solid green; border-right: 1px solid green; min-height: 48px; padding-top: 10px;'>
+      City
+    </div>
+    <div class='col-xs-4'  style=' border-top: 1px solid green; border-bottom: 1px solid green; padding: 5px; min-height: 48px;'>
+      <input type='text' ng-model='user.city' class='form-control'>
+    </div>
+
+    <div class='col-xs-2'  style='background-color: #C2FFC2; font-weight: bold; border-top: 1px solid green; border-bottom: 1px solid green; border-right: 1px solid green; min-height: 48px; padding-top: 10px;'>
+      State/Province
+    </div>
+    <div class='col-xs-4'  style=' border-top: 1px solid green; border-bottom: 1px solid green; padding: 5px; min-height: 48px;'>
+      <input type='text' ng-model='user.state' class='form-control'>
+    </div>
+
+    <div class='col-xs-2'  style='background-color: #C2FFC2; font-weight: bold; border-top: 1px solid green; border-bottom: 1px solid green; border-right: 1px solid green; min-height: 48px; padding-top: 10px;'>
+      Country
+    </div>
+    <div class='col-xs-4'  style=' border-top: 1px solid green; border-bottom: 1px solid green; padding: 5px; min-height: 48px;'>
+      <input type='text' ng-model='user.country' class='form-control'>
+    </div>
+
+    <div class='col-xs-2'  style='background-color: #C2FFC2; font-weight: bold; border-top: 1px solid green; border-bottom: 1px solid green; border-right: 1px solid green; min-height: 48px; padding-top: 10px;'>
+      Zip/postal code
+    </div>
+    <div class='col-xs-4'  style=' border-top: 1px solid green; border-bottom: 1px solid green; padding: 5px; min-height: 48px;'>
+      <input type='text' ng-model='user.zip' class='form-control'>
+    </div>
+
+    <div class='col-xs-2'  style='background-color: #C2FFC2; font-weight: bold; border-top: 1px solid green; border-bottom: 1px solid green; border-right: 1px solid green; min-height: 48px; padding-top: 10px;'>
+      E-mail
+    </div>
+    <div class='col-xs-4'  style=' border-top: 1px solid green; border-bottom: 1px solid green; padding: 5px; min-height: 48px;'>
+      <input type='text' ng-model='user.email' class='form-control'>
+    </div>
+
+    <div class='col-xs-2'  style='background-color: #C2FFC2; font-weight: bold; border-top: 1px solid green; border-bottom: 1px solid green; border-right: 1px solid green; min-height: 48px; padding-top: 10px;'>
+      Phone
+    </div>
+    <div class='col-xs-4'  style=' border-top: 1px solid green; border-bottom: 1px solid green; padding: 5px; min-height: 48px;'>
+      <input type='text' ng-model='user.phone' class='form-control'>
+    </div>
+
+
+
+
+
+
+
+
+
   </div>
 
 </div>

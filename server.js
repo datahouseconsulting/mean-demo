@@ -5,6 +5,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
 
 //======================================================================================
 // Setup Mongo event handlers.
@@ -112,10 +114,16 @@ var todoRoutes = require('./app/routes/todo-routes');
 app.post('/api/todo', todoRoutes.create); 
 app.get('/api/todo', todoRoutes.list);
 
+// authentication routes.
 var authenticationRoutes = require('./app/routes/authentication');
 app.post('/api/login', authenticationRoutes.authenticate);
 app.post('/api/logout', authenticationRoutes.logout);
 app.get('/api/is_logged_in', authenticationRoutes.isLoggedIn);
+
+// file routes.
+var fileRoutes = require('./app/routes/file');
+app.get('/api/files/:filename', fileRoutes.getFile);
+app.post('/api/files', multipartMiddleware, fileRoutes.uploadFile);
 
 //======================================================================================
 // Start the express server.

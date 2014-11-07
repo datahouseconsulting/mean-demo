@@ -32,7 +32,7 @@ exports.getFile = function (folderPath, key, callback) {
 
   // get the S3 params to perform the get of the file object.
   // get the folder path.
-  var documentFolder = buildFolderPath(path, false);
+  var documentFolder = buildFolderPath(folderPath, false);
 
   // build the query params.
   var params = {

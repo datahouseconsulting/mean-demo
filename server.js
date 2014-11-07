@@ -80,6 +80,7 @@ else {
 //======================================================================================
 require('./app/models/todo');
 require('./app/models/user');
+require('./app/models/application');
 
 //======================================================================================
 // Configure the server.
@@ -115,10 +116,15 @@ app.post('/api/todo', todoRoutes.create);
 app.get('/api/todo', todoRoutes.list);
 
 // authentication routes.
-var authenticationRoutes = require('./app/routes/authentication');
+var authenticationRoutes = require('./app/routes/authentication-routes');
 app.post('/api/login', authenticationRoutes.authenticate);
 app.post('/api/logout', authenticationRoutes.logout);
 app.get('/api/is_logged_in', authenticationRoutes.isLoggedIn);
+
+// application routes.
+var applicationRoutes = require('./app/routes/application-routes');
+app.post('/api/applications', applicationRoutes.createApplication);
+app.get('/api/applications', applicationRoutes.list);
 
 // if the s3 key and secret are present.
 if (process.env.S3_KEY && process.env.S3_SECRET) {

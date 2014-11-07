@@ -41,7 +41,11 @@
     </tbody>
   </table>
 
+  <div></div>
 
+  <select ng-model="selectedIsland" ng-options="island.name for island in islandList" ng-change='islandChanged();' style='width: 100px;'></select>
+  <select ng-model="selectedDistrict" ng-options="district.name for district in districtList" ng-change='districtChanged();' style='width: 130px;'></select>
+  <select ng-model="selectedSchool" ng-options="school.name for school in schoolList" style='width: 200px;'></select>
 
 
 </div>

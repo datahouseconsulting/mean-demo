@@ -1,4 +1,4 @@
-var doeApp = angular.module('doeApp', ['ngResource', 'ngRoute', 'ngCookies']);
+var doeApp = angular.module('doeApp', ['ngResource', 'ngRoute', 'ngCookies', 'datatables']);
 
 
 // setup routes

@@ -1,4 +1,4 @@
-var ApplicationController = function($scope, $location) {
+var ApplicationController = function($scope, $location, ApplicationNodeService, ApplicationDisplayService) {
 
   //default to guidelines page
   $scope.page = {
@@ -6,8 +6,32 @@ var ApplicationController = function($scope, $location) {
     applicationSection: '1'
   }
 
-  // start with a blank application
-  $scope.application = {};
+
+
+
+  // pull any search params from the top url (documentId)
+  var searchParams = $location.search();
+
+  // if theres an id passed, then get it
+  if (searchParams.applicationId) {
+
+    ApplicationNodeService.getApplication(searchParams.applicationId).then(
+      // success
+      function (data) {
+        $scope.application = data;
+      },
+      //err
+      function (err) {
+        alert('=' + JSON.stringify(err) + '=');
+      }
+    );
+  }
+  else {
+    // start with a blank application
+    $scope.application = {
+      status: 'New'
+    };
+  }
 
 
   $scope.user = {
@@ -30,6 +54,20 @@ var ApplicationController = function($scope, $location) {
     $scope.page.applicationSection = section;
   }
 
+  $scope.fieldDisabled = function(htmlId) {
+    if (!$scope.application.status) {
+      return true;
+    }
+    else {
+      return ApplicationDisplayService.fieldDisabled(htmlId, $scope.application.status);
+    }
+
+  }
+
+
+
+
+
   $scope.save = function () {
     // validate fields
     $scope.appForm.title.$dirty = true;
@@ -50,7 +88,16 @@ var ApplicationController = function($scope, $location) {
       $('#description').focus();
     }
     else {
-      alert('=' + JSON.stringify($scope.application) + '=');
+      ApplicationNodeService.createApplication($scope.application).then(
+        // success
+        function (data) {
+          $location.path('/home');
+        },
+        //err
+        function (err) {
+          alert('=' + JSON.stringify(err) + '=');
+        }
+      );
     }
 
   }

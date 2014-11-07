@@ -1,0 +1,26 @@
+.block {
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+}
+
+
+/* thin border around divs to make it look like its in a container */
+.thin-border {
+  border: 1px solid black;
+}
+
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+
+/* this makes a div or element look like the user can click in it */
+.clickable {
+  cursor: pointer;
+}
+
+.blue-background {
+  background-color: lightblue;
+}

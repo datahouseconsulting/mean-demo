@@ -3,5 +3,5 @@ exports.add = function(x, y) {
 };
 
 exports.sub = function(x, y) {
-  return x + y;
+  return x - y;
 };

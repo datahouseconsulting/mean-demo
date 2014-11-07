@@ -37,7 +37,7 @@ OR
 #### Results:
 
     HTTP Status 200
-    
+
     {
       "status": "success"
     }
@@ -130,6 +130,49 @@ OR
         "__v": 0
       }
     ]
+
+OR
+
+    HTTP Status 500
+
+    <Stack Trace>
+
+
+Files
+====================================================================
+____________________________________________________________________
+
+## 1) Upload a file:
+
+    POST /api/files
+
+    Content-Type: multipart/form-data;
+
+    File should be added to request body with the name file.
+
+#### Results:
+
+    HTTP Status 200
+
+    {
+      "status": "success"
+    }
+
+OR
+
+    HTTP Status 500
+
+    <Stack Trace>
+
+## 2) Get file:
+
+    GET /api/files/<filename>
+
+#### Results:
+
+    HTTP Status 200
+
+    File will be in the body.
 
 OR
 

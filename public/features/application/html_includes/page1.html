@@ -5,8 +5,12 @@
     <div class='col-xs-12'>
 
   <div style='padding-left: 20px; margin-top: 15px;'>
-    Study number: <span style='color: purple;'>
+    Study number: <span ng-hide='application._id' style='color: purple;'>
     0000000000000
+    </span>
+    <span ng-show='application._id' style='color: purple;'>
+      {{application._id}}
+
     </span>
   </div>
 

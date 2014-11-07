@@ -1,15 +1,92 @@
 <!-- application -->
 
-<div ng-show="page == 'application'">
+<div ng-show="page.visiblePage == 'application'">
 
-<div style='margin-top: 20px;'>
+  <div style='margin-top: 20px;'>
 
-  <div class='row' style='font-size: 20px;'>
-    <div class='col-xs-3 thin-border overflow-hidden blue-background' style='padding: 10px; height: 50px;'>Application Guidelines</div>
-    <div class='col-xs-3 thin-border overflow-hidden blue-background' style='padding: 10px; height: 50px;'>User Profile</div>
-    <div class='col-xs-3 thin-border overflow-hidden' style='padding: 10px; height: 50px; font-weight: bold; border-bottom: none;'>Application</div>
+    <div class='row' style='font-size: 23px;'>
+      <div class='col-xs-3 thin-border overflow-hidden clickable blue-background' ng-click="page.visiblePage = 'guidelines'" style='padding: 10px; height: 50px;'>Application Guidelines</div>
+      <div class='col-xs-3 thin-border overflow-hidden clickable blue-background' ng-click="page.visiblePage = 'user'" style='padding: 10px; height: 50px;'>User Profile</div>
+      <div class='col-xs-3 thin-border overflow-hidden' style='padding: 10px; height: 50px; font-weight: bold; border-bottom: none;'>Application</div>
+      <div class='col-xs-3 thin-border' style="height: 50px; border-top: none; border-right: none; border-left: none;"></div>
+    </div>
+
+
+    <div class='row thin-border' style='border-top: none; padding-top: 20px; font-size: 20px; padding-left: 4px; padding-right: 4px;'>
+
+
+        <div ng-hide='page.applicationSection == "1"' ng-click='page.applicationSection = "1"' class='col-xs-2 thin-border overflow-hidden text-center clickable' style='background-color: #F8F8F8 ; height: 100px; border-color: lightblue; padding: 5px; padding-top: 20px;'>
+          1. Study information
+        </div>
+      <div ng-show='page.applicationSection == "1"' class='col-xs-2 thin-border overflow-hidden text-center' style='background-color: 	#404FA1; color: white; font-weight: bold; height: 100px; border-color: lightblue; padding: 5px;'>
+        1. Study information
+      </div>
+        <div ng-hide='page.applicationSection == "2"' ng-click='page.applicationSection = "2"' class='col-xs-2 thin-border overflow-hidden text-center clickable' style='background-color: #F8F8F8; height: 100px; border-color: lightblue; padding: 5px;'>
+          2. Educational
+          research
+          justification
+        </div>
+      <div ng-show='page.applicationSection == "2"' class='col-xs-2 thin-border overflow-hidden text-center' style='background-color: 	#404FA1; color: white; font-weight: bold; height: 100px; border-color: lightblue; padding: 5px;'>
+        2. Educational
+        research
+        justification
+      </div>
+        <div ng-hide='page.applicationSection == "3"' ng-click='page.applicationSection = "3"' class='col-xs-2 thin-border overflow-hidden text-center clickable' style='background-color: #F8F8F8; height: 100px; border-color: lightblue; padding: 5px; padding-top: 20px;'>
+          3. Study
+          design
+        </div>
+
+      <div ng-show='page.applicationSection == "3"' class='col-xs-2 thin-border overflow-hidden text-center' style='background-color: 	#404FA1; color: white; font-weight: bold; height: 100px; border-color: lightblue; padding: 5px; padding-top: 20px;'>
+        3. Study
+        design
+      </div>
+        <div ng-hide='page.applicationSection == "4"' ng-click='page.applicationSection = "4"' class='col-xs-2 thin-border overflow-hidden text-center clickable' style='background-color: #F8F8F8; height: 100px; border-color: lightblue; padding: 5px;'>
+          4. Data
+          Collection
+          instruments
+        </div>
+
+      <div ng-show='page.applicationSection == "4"' class='col-xs-2 thin-border overflow-hidden text-center' style='background-color: 	#404FA1; color: white; font-weight: bold; height: 100px; border-color: lightblue; padding: 5px;'>
+        4. Data
+        Collection
+        instruments
+      </div>
+        <div ng-hide='page.applicationSection == "5"' ng-click='page.applicationSection = "5"' class='col-xs-2 thin-border overflow-hidden text-center clickable' style='background-color: #F8F8F8; height: 100px; border-color: lightblue; padding: 5px; padding-top: 20px;'>
+          5. IRB
+          approval
+        </div>
+      <div ng-show='page.applicationSection == "5"' class='col-xs-2 thin-border overflow-hidden text-center' style='background-color: 	#404FA1; color: white; font-weight: bold; height: 100px; border-color: lightblue; padding: 5px; padding-top: 20px;'>
+        5. IRB
+        approval
+      </div>
+        <div ng-hide='page.applicationSection == "6"' ng-click='page.applicationSection = "6"' class='col-xs-2 thin-border overflow-hidden text-center clickable' style='background-color: #F8F8F8; height: 100px; border-color: lightblue; padding: 5px;'>
+          6. Comments,
+          signature forms,
+          and submission
+        </div>
+
+
+      <div ng-show='page.applicationSection == "6"' class='col-xs-2 thin-border overflow-hidden text-center' style='background-color: 	#404FA1; color: white; font-weight: bold; height: 100px; border-color: lightblue; padding: 5px;'>
+        6. Comments,
+        signature forms,
+        and submission
+      </div>
+
+
+
+      <div ng-include='"/features/application/html_includes/page1.html"'></div>
+      <div ng-include='"/features/application/html_includes/page2.html"'></div>
+      <div ng-include='"/features/application/html_includes/page3.html"'></div>
+      <div ng-include='"/features/application/html_includes/page4.html"'></div>
+      <div ng-include='"/features/application/html_includes/page5.html"'></div>
+      <div ng-include='"/features/application/html_includes/page6.html"'></div>
+
+
+
+
+    </div>
+
+
   </div>
 
 </div>
-
-  </div>

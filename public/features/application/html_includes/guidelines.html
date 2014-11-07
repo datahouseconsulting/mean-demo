@@ -1,13 +1,50 @@
 <!-- app guidelines -->
-<div ng-show="page == 'guidelines'">
+<div ng-show="page.visiblePage == 'guidelines'">
 
 
 <div style='margin-top: 20px;'>
 
-  <div class='row' style='font-size: 20px;'>
+  <div class='row' style='font-size: 23px;'>
     <div class='col-xs-3 thin-border overflow-hidden' style='padding: 10px; height: 50px; font-weight: bold; border-bottom: none;'>Application Guidelines</div>
-    <div class='col-xs-3 thin-border overflow-hidden clickable blue-background' style='padding: 10px; height: 50px;'>User Profile</div>
-    <div class='col-xs-3 thin-border overflow-hidden clickable blue-background' style='padding: 10px; height: 50px;'>Application</div>
+    <div class='col-xs-3 thin-border overflow-hidden clickable blue-background' ng-click="page.visiblePage = 'user'" style='padding: 10px; height: 50px;'>User Profile</div>
+    <div class='col-xs-3 thin-border overflow-hidden clickable blue-background' ng-click="page.visiblePage = 'application'" style='padding: 10px; height: 50px;'>Application</div>
+    <div class='col-xs-3 thin-border' style="height: 50px; border-top: none; border-right: none; border-left: none;"></div>
+  </div>
+
+  <div class='row thin-border' style='border-top: none; padding-top: 20px; font-size: 20px;'>
+    <span style='font-size: 34px; font-weight: bold; color: cornflowerblue; padding-left: 20px;'>Aloha</span>
+    <span style='font-size: 22px; font-weight: bold; padding-left: 10px;'>
+      Researchers
+    </span>
+
+    <div style='padding: 20px;'>
+
+      Thank you for your interest in conducting research in the Hawaii Department of Education.
+      <div style='height: 15px;'></div>
+      For security reasons, your session will expire after 90 minutes. It is strongly recommended
+      that you save your application frequently using the “Save application without
+      submitting” button at the bottom of each page to avoid losing any changes.
+      <div style='height: 15px;'></div>
+      Please be aware that pop-up messages may appear during your session. For directions on
+      what to do when these pop-up messages appear, please visit the <a href=''>
+      FAQs page
+      </a>.
+      <div style='height: 15px;'></div>
+      Directions on closing the application may also be found on the <a href=''>
+      FAQs page
+      </a>.
+      <div style='height: 15px;'></div>
+      Also, please remember to check the “User Profile” tab above to confirm that your contact
+      information is up-to-date. All communication from HIDOE related to your application will be
+      sent to the contact information listed there.
+      <div style='height: 15px;'></div>
+      If you have any questions about the application, please email the Data Governance Office.
+
+
+    </div>
+
+
+
   </div>
 
 </div>

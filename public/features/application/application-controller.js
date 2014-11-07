@@ -6,6 +6,9 @@ var ApplicationController = function($scope, $location) {
     applicationSection: '1'
   }
 
+  // start with a blank application
+  $scope.application = {};
+
 
   $scope.user = {
     name: 'DOE, John',
@@ -47,8 +50,7 @@ var ApplicationController = function($scope, $location) {
       $('#description').focus();
     }
     else {
-      alert('--save--');
-
+      alert('=' + JSON.stringify($scope.application) + '=');
     }
 
   }

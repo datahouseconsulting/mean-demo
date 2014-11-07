@@ -1,4 +1,4 @@
-var ApplicationController = function($scope) {
+var ApplicationController = function($scope, $location) {
 
   //default to guidelines page
   $scope.page = {
@@ -18,5 +18,10 @@ var ApplicationController = function($scope) {
     phone: '808-123-4567'
   }
 
+
+  $scope.close = function () {
+    $location.path('/home');
+
+  }
 
 };

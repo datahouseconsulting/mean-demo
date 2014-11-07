@@ -21,7 +21,40 @@ var ApplicationController = function($scope, $location) {
 
   $scope.close = function () {
     $location.path('/home');
+  }
 
+  $scope.changeSection = function (section) {
+    $scope.page.applicationSection = section;
+  }
+
+  $scope.save = function () {
+    // validate fields
+    $scope.appForm.title.$dirty = true;
+    $scope.appForm.objective.$dirty = true;
+    $scope.appForm.description.$dirty = true;
+
+    $('#description').addClass('ng-dirty');
+    $('#objective').addClass('ng-dirty');
+    $('#title').addClass('ng-dirty');
+
+    if ($scope.appForm.title.$invalid) {
+      $('#title').focus();
+    }
+    else if ($scope.appForm.objective.$invalid) {
+      $('#objective').focus();
+    }
+    else if ($scope.appForm.description.$invalid) {
+      $('#description').focus();
+    }
+    else {
+      alert('--save--');
+
+    }
+
+  }
+
+  $scope.submit = function () {
+    alert('--submit--');
   }
 
 };

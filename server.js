@@ -21,6 +21,9 @@ mongoose.connection.on('connected', function() {
   console.log('Connected to MongoDB');
 });
 
+// will hold the reference to the mongo db connection.
+var db;
+
 //======================================================================================
 // If the demo environment variable is set. use the ops works settings
 // to establish the database connection.
@@ -55,7 +58,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV == 'demo') {
       console.log(connection);
 
       // establish the mongo connection.
-      mongoose.connect(connection);
+      db = mongoose.connect(connection);
     }
   }
   catch (ex) {
@@ -67,13 +70,14 @@ if (process.env.NODE_ENV && process.env.NODE_ENV == 'demo') {
 //======================================================================================
 else {
   // establish the Mongo connection.
-  mongoose.connect('mongodb://localhost/mean-demo');
+  db = mongoose.connect('mongodb://localhost/mean-demo');
 }
 
 //======================================================================================
 // Load the mongoose models.
 //======================================================================================
 require('./app/models/todo');
+require('./app/models/user');
 
 //======================================================================================
 // Configure the server.
@@ -84,6 +88,14 @@ app.use(bodyParser.json());
 
 // get the port number.
 var port = process.env.PORT || 8000;
+
+//======================================================================================
+// Configure passport.
+//======================================================================================
+
+var passportConfig = require('./config/passport');
+passportConfig.configure(app, db);
+
 
 //======================================================================================
 // Setup the routes.
@@ -99,6 +111,11 @@ app.use(express.static(__dirname + '/public'));
 var todoRoutes = require('./app/routes/todo-routes');
 app.post('/api/todo', todoRoutes.create); 
 app.get('/api/todo', todoRoutes.list);
+
+var authenticationRoutes = require('./app/routes/authentication');
+app.post('/api/login', authenticationRoutes.authenticate);
+app.post('/api/logout', authenticationRoutes.logout);
+app.get('/api/is_logged_in', authenticationRoutes.isLoggedIn);
 
 //======================================================================================
 // Start the express server.

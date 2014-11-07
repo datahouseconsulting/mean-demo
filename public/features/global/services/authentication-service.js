@@ -59,74 +59,33 @@ doeApp.factory('AuthenticationService', ['$http','$q', '$location', '$cookies', 
     },
 
 
-    /**
-     * check if the user is logged in (user stored in rootscope)
-     * if not, then try get the user from the server
-     * if they arent logged in you will get a 401
-     *
-     * return the current user
-     *
-     */
-//    validateUserLoggedIn: function(callback, scope) {
-//
-//      // check if user already exists on the rootscope - if so use that user
-//      if ($rootScope.user && $rootScope.user != null) {
-//        // if there is a callback function then call it now
-//        if (callback) {
-//          callback();
-//        }
-//      }
-//      else {
-//        // get the user and save them if they exist, otherwise go to the login page...
-//        $http.get(serverConfig.getIsLoggedInUrl(), {})
-//          .success(function (data) {
-//            // make sure it returned successfully
-//            if (data.status == serverConfig.serverStatusCodes.SUCCESS) {
-//              // store the user onto the root scope
-//              $rootScope.user = data.data.user;
-//
-//              // check if the user is impersonating someone
-//              var pretendUserId = $cookies.pretendUserId;
-//
-//              // if so then update the user object
-//              if (pretendUserId != undefined) {
-//                // save the actual user - this will be added to the user object
-//                var actualUser = angular.copy($rootScope.user);
-//
-//                // match the pretend user to a user on the user object, to get all of that users information
-//                for (var i = 0; i < $rootScope.user.pretendAsUsers.length; i++) {
-//                  if ($rootScope.user.pretendAsUsers[i].userId == pretendUserId) {
-//                    $rootScope.user = $rootScope.user.pretendAsUsers[i];
-//                    $rootScope.user.actualUser = actualUser;
-//                  }
-//                }
-//              }
-//
-//              // clean and save the list of projects the user has access to
-//              $rootScope.user.projectList = ProjectListService.cleanProjectList(data.data.projects, false, true);
-//              $rootScope.user.itemProjectList = ProjectListService.cleanProjectList(data.data.projects, false, false);
-//
-//              // if there is a callback function then call it now
-//              if (callback) {
-//                callback();
-//              }
-//            }
-//            else {
-//              // go to the login page if this user isnt logged in
-//              $location.path('/login');
-//              scope.$parent.loginFlag = false;
-//            }
-//          })
-//          .error(function (data) {
-//            // go to the login page in the case of an error...
-//            // or should we display an error???
-//            $location.path('/login');
-//            scope.$parent.loginFlag = false;
-//
-//          });
-//
-//      }
-//    }
+
+    validateUserLoggedIn: function() {
+
+      // check if user already exists on the rootscope - if so use that user
+      if ($rootScope.user && $rootScope.user != null) {
+        // do nothing valid
+      }
+      else {
+        // get the user and save them if they exist, otherwise go to the login page...
+        $http.get('/api/is_logged_in?time=' + Date.now(), {})
+          .success(function (data) {
+
+            if (data.loggedIn) {
+              // store the user onto the root scope
+              $rootScope.user = data.user;
+
+            }
+            else {
+              $location.path('/login');
+            }
+          })
+          .error(function (data) {
+            $location.path('/login');
+          });
+
+      }
+    }
 
 
   };

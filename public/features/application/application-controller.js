@@ -1,13 +1,14 @@
-var ApplicationController = function($scope, $location, ApplicationNodeService, ApplicationDisplayService) {
+var ApplicationController = function($scope, $location, ApplicationNodeService, ApplicationDisplayService, AuthenticationService) {
+
+
+  // check to make sure the user is logged in - if not, then exit to login page...
+  AuthenticationService.validateUserLoggedIn();
 
   //default to guidelines page
   $scope.page = {
     visiblePage: 'guidelines',
     applicationSection: '1'
   }
-
-
-
 
   // pull any search params from the top url (documentId)
   var searchParams = $location.search();
@@ -79,12 +80,15 @@ var ApplicationController = function($scope, $location, ApplicationNodeService, 
     $('#title').addClass('ng-dirty');
 
     if ($scope.appForm.title.$invalid) {
+      $scope.changeSection('1');
       $('#title').focus();
     }
     else if ($scope.appForm.objective.$invalid) {
+      $scope.changeSection('1');
       $('#objective').focus();
     }
     else if ($scope.appForm.description.$invalid) {
+      $scope.changeSection('1');
       $('#description').focus();
     }
     else {

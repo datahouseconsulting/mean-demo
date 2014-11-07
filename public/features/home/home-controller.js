@@ -3,7 +3,13 @@
 //
 //
 // --------------------------------------------------------------------------------------------
-var HomeController = function($scope, ApplicationNodeService, DTOptionsBuilder, DTColumnDefBuilder) {
+var HomeController = function($scope, ApplicationNodeService, AuthenticationService, $location, DTOptionsBuilder, DTColumnDefBuilder) {
+
+
+  // check to make sure the user is logged in - if not, then exit to login page...
+  AuthenticationService.validateUserLoggedIn();
+
+
 
   $scope.applicationList = [];
 
@@ -26,6 +32,22 @@ var HomeController = function($scope, ApplicationNodeService, DTOptionsBuilder, 
       alert('=' + JSON.stringify(err) + '=');
     }
   );
+
+
+    $scope.logout = function() {
+
+      AuthenticationService.logout().then(
+        function(data) {
+          $location.path('/login');
+
+        },
+        function(err) {
+          alert('=' + JSON.stringify(err) + '=');
+        }
+      );
+    }
+
+
 
 
 };

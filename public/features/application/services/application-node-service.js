@@ -10,7 +10,7 @@ doeApp.factory('ApplicationNodeService', ['$http', '$q', function ($http, $q) {
       // build a deferred object reference.
       var deferred = $q.defer();
 
-      $http.get('/api/applications/' + applicationId)
+      $http.get('/api/applications/' + applicationId + '?time=' + Date.now())
         .success(function (data) {
           deferred.resolve(data);
         })
@@ -29,7 +29,7 @@ doeApp.factory('ApplicationNodeService', ['$http', '$q', function ($http, $q) {
     getApplicationList: function () {
       // build a deferred object reference.
       var deferred = $q.defer();
-      $http.get('/api/applications')
+      $http.get('/api/applications?time=' + Date.now())
         .success(function (data) {
           deferred.resolve(data);
         })

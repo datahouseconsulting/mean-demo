@@ -120,10 +120,13 @@ app.post('/api/login', authenticationRoutes.authenticate);
 app.post('/api/logout', authenticationRoutes.logout);
 app.get('/api/is_logged_in', authenticationRoutes.isLoggedIn);
 
-// file routes.
-var fileRoutes = require('./app/routes/file');
-app.get('/api/files/:filename', fileRoutes.getFile);
-app.post('/api/files', multipartMiddleware, fileRoutes.uploadFile);
+// if the s3 key and secret are present.
+if (process.env.S3_KEY && process.env.S3_SECRET) {
+  // file routes.
+  var fileRoutes = require('./app/routes/file');
+  app.get('/api/files/:filename', fileRoutes.getFile);
+  app.post('/api/files', multipartMiddleware, fileRoutes.uploadFile);
+}
 
 //======================================================================================
 // Start the express server.

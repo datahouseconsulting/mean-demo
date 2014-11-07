@@ -8,8 +8,8 @@ var path = require('path');
 // build the s3 options.
 var s3Options =  {
   region: 'us-west-1',
-  accessKeyId: 'AKIAI7JSS33ALDWGUHGA',
-  secretAccessKey: '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',
+  accessKeyId: process.env.S3_KEY,
+  secretAccessKey: process.env.S3_SECRET,
   sslEnabled: false,
   maxRetries: 2,
   logger: process.stdout

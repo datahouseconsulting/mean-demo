@@ -4,8 +4,8 @@
 // --------------------------------------------------------------------------------------------
 var LoginController = function($scope, $location, AuthenticationService, $rootScope) {
 
+  // start this out as a valid login
   $scope.invalidLogin = false;
-
 
   // attempt to login using the username and password provided
   $scope.login = function(username, password) {
@@ -14,7 +14,6 @@ var LoginController = function($scope, $location, AuthenticationService, $rootSc
       AuthenticationService.authenticate(username, password).then(
         // successfully authenticated
         function(data) {
-
             // redirect by default to the home view.
             $location.path('/home');
 
@@ -22,7 +21,7 @@ var LoginController = function($scope, $location, AuthenticationService, $rootSc
         // didn't authenticate, and passing the reason back
         function(err) {
           $scope.invalidLogin = true;
-          $scope.user.username = '';
+          // clear pw
           $scope.user.password = '';
         }
       );

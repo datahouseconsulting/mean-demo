@@ -6,10 +6,17 @@ doeApp.factory('ApplicationNodeService', ['$http', '$q', function ($http, $q) {
 
   return {
 
+    /**
+     * Get the single application using an id
+     *
+     * @param applicationId
+     */
     getApplication: function (applicationId) {
       // build a deferred object reference.
       var deferred = $q.defer();
 
+      // GET request to get the application as json
+      // using a timestamp so that the request isnt cached
       $http.get('/api/applications/' + applicationId + '?time=' + Date.now())
         .success(function (data) {
           deferred.resolve(data);
@@ -29,6 +36,9 @@ doeApp.factory('ApplicationNodeService', ['$http', '$q', function ($http, $q) {
     getApplicationList: function () {
       // build a deferred object reference.
       var deferred = $q.defer();
+
+      // GET request to get the application list
+      // using a timestamp so that the request isnt cached
       $http.get('/api/applications?time=' + Date.now())
         .success(function (data) {
           deferred.resolve(data);
@@ -41,6 +51,12 @@ doeApp.factory('ApplicationNodeService', ['$http', '$q', function ($http, $q) {
     },
 
 
+    /**
+     * Create a new application
+     * @param application
+     *
+     * pass back the newly created app, along with the generated id if successfull
+     */
     createApplication: function (application) {
       // new apps start as pending
       application.status = 'Pending';
@@ -48,6 +64,7 @@ doeApp.factory('ApplicationNodeService', ['$http', '$q', function ($http, $q) {
       // get a reference to the deferred object.
       var deferred = $q.defer();
 
+      // POST to the application api
       $http.post('/api/applications', application)
         .success(function (data) {
             deferred.resolve(data);
@@ -69,28 +86,3 @@ doeApp.factory('ApplicationNodeService', ['$http', '$q', function ($http, $q) {
 }]);
 
 
-
-//  return {
-//
-//
-//    angular.module('app', ['ngResource'])
-//  .controller('TodoController', ['$scope', '$resource', function($scope, $resource) {
-//
-//    var Todo = $resource('/api/todo');
-//
-//    $scope.todoList = [];
-//
-//    Todo.query(function(result){
-//      $scope.todoList = result;
-//    });
-//
-//    $scope.add = function() {
-//      var todo = new Todo();
-//      todo.text = $scope.newTodo;
-//      todo.$save(function(result) {
-//        $scope.todoList.push(result);
-//        $scope.newTodo = '';
-//      });
-//    };
-//
-//  }]);

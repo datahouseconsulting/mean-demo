@@ -9,14 +9,13 @@ var HomeController = function($scope, ApplicationNodeService, AuthenticationServ
   // check to make sure the user is logged in - if not, then exit to login page...
   AuthenticationService.validateUserLoggedIn();
 
-
-
+  // default to a blank list
   $scope.applicationList = [];
 
+  // options for the datatable
   $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers').withDisplayLength(10);
 
-
-
+  // populate the list of applications on the page
   ApplicationNodeService.getApplicationList().then(
     // success
     function (data) {
@@ -29,18 +28,23 @@ var HomeController = function($scope, ApplicationNodeService, AuthenticationServ
   );
 
 
-    $scope.logout = function() {
+  /**
+   * logout of the web app
+   *
+   */
+  $scope.logout = function() {
+    AuthenticationService.logout().then(
+      // success
+      function(data) {
+        $location.path('/login');
 
-      AuthenticationService.logout().then(
-        function(data) {
-          $location.path('/login');
-
-        },
-        function(err) {
-          alert('=' + JSON.stringify(err) + '=');
-        }
-      );
-    }
+      },
+      // error
+      function(err) {
+        alert('=' + JSON.stringify(err) + '=');
+      }
+    );
+  }
 
 
 

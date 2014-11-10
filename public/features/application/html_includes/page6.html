@@ -5,7 +5,7 @@
         PAGE 6
 
         <div style='margin-top: 200px;'>
-          <button class='btn btn-warning' ng-click='save();'>Save application without submitting</button>
+          <button class='btn btn-warning' ng-click='save();' ng-hide='fieldDisabled("save")'>Save application without submitting</button>
           <button class='btn btn-default' ng-click='submit();'>Submit your Application</button>
         </div>
 

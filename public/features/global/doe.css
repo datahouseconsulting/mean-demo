@@ -1,3 +1,5 @@
+
+/*allows you to make divs flow in line*/
 .block {
   display: inline-block;
   vertical-align: top;
@@ -11,6 +13,8 @@
 }
 
 
+/*hide the overflow */
+/*mainly used so the boxes dont expand funny vertically*/
 .overflow-hidden {
   overflow: hidden;
 }
@@ -21,10 +25,12 @@
   cursor: pointer;
 }
 
+ /*background for tabs*/
 .blue-background {
   background-color: lightblue;
 }
 
+/*display red boxes when a textbox is invalid*/
 textarea.ng-invalid.ng-dirty {
   border: 1px solid red;
 }

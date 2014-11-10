@@ -5,6 +5,23 @@ var s3Service = require('../services/s3-service');
 var fs = require('fs');
 
 /**
+ * Checks that a user is logged in.
+ * @param req
+ * @param res
+ * @param next
+ * @returns {*|ServerResponse}
+ */
+exports.isLoggedIn = function (req, res, next) {
+  // check if passport added the user reference.
+  if (!req.user) {
+    return res.json('Not Authorized');
+  }
+
+  // proceed to next route.
+  next();
+};
+
+/**
  * Gets a file from s3.
  * @param req
  * @param res

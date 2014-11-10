@@ -125,13 +125,13 @@ app.get('/api/is_logged_in', authenticationRoutes.isLoggedIn);
 var applicationRoutes = require('./app/routes/application-routes');
 app.post('/api/applications', applicationRoutes.createApplication);
 app.get('/api/applications', applicationRoutes.list);
-app.get('/api/applications/:id', applicationRoutes.getApplication)
+app.get('/api/applications/:id', applicationRoutes.getApplication);
 
 // if the s3 key and secret are present.
 if (process.env.S3_KEY && process.env.S3_SECRET) {
   // file routes.
   var fileRoutes = require('./app/routes/file');
-  app.get('/api/files/:filename', fileRoutes.getFile);
+  app.get('/api/files/:filename', fileRoutes.isLoggedIn, fileRoutes.getFile);
   app.post('/api/files', multipartMiddleware, fileRoutes.uploadFile);
 }
 

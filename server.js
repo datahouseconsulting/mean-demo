@@ -9,7 +9,7 @@ var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
 
 //======================================================================================
-// Setup Mongo event handlers.
+// Setup MongoDB event handlers.
 //======================================================================================
 
 // Add error handler when unable to establish a mongodb connection.

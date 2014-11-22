@@ -1,5 +1,8 @@
 
 <div class='container'>
+
+  <form name='appForm' novalidate ng-submit=''>
+
   <div class='row' style='font-size: 20px;'>
     <div class='col-xs-2 thin-border overflow-hidden' style='height: 120px; padding: 10px; text-align: center;'>
       <img src="resources/logo.png" alt=""/>
@@ -11,20 +14,27 @@
       Application to Conduct Research in Hawai'i Public Schools
       </span>
     </div>
-    <div class='col-xs-5 thin-border overflow-hidden' style='height: 120px; padding: 10px;'>
+    <div class='col-xs-4 thin-border overflow-hidden' style='height: 120px; padding: 10px; border-right: none;'>
       <span style='font-weight: bold;'>
       Data Governance Office
       </span>
       <br>
       Office of the Superintenent
+    </div>
+
+    <div class='col-xs-1 thin-border overflow-hidden' style='height: 120px; padding: 10px; border-left: none;'>
+      <button class='btn btn-danger' ng-click='close();'>Close</button>
 
     </div>
   </div>
 
+    <!-- The different "pages" -->
   <div ng-include='"/features/application/html_includes/guidelines.html"'></div>
   <div ng-include='"/features/application/html_includes/user_profile.html"'></div>
   <div ng-include='"/features/application/html_includes/application.html"'></div>
 
+
+    </form>
 
 </div>
 

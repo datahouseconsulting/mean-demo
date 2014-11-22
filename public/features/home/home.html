@@ -1,1 +1,51 @@
-hi im home
+<div class='container'>
+
+
+
+
+  <div class='row'>
+    <div class='col-xs-12 text-right' style='padding-top: 5px; padding-right: 10px;'>
+      <a href='' ng-click='logout();'>
+        Logout
+      </a></div>
+  </div>
+
+
+
+  <div class='row' style='margin-top: 30px;'>
+    <div class='col-xs-9' style='font-size: 20px; font-weight: bold;'>Complete Listing - Applications to Conduct Research</div>
+    <div class='col-xs-3 text-right' style='padding-top: 5px; padding-right: 10px;'>
+      <a href='/#/application'>
+        Create New Application
+      </a></div>
+  </div>
+
+
+
+  <table datatable="ng" dt-options="dtOptions" class="row-border hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat='application in applicationList'>
+        <td><a href='/#/application?applicationId={{application._id}}'>
+        {{application._id}}
+        </a></td>
+        <td>{{application.title}}</td>
+        <td>{{application.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div></div>
+
+  <select ng-model="selectedIsland" ng-options="island.name for island in islandList" ng-change='islandChanged();' style='width: 100px;'></select>
+  <select ng-model="selectedDistrict" ng-options="district.name for district in districtList" ng-change='districtChanged();' style='width: 130px;'></select>
+  <select ng-model="selectedSchool" ng-options="school.name for school in schoolList" style='width: 200px;'></select>
+
+
+</div>

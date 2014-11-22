@@ -1,5 +1,17 @@
 <div ng-show='page.applicationSection == "6"' style='min-height: 500px;'>
-  page 6
+  <div class='row'>
+    <div class='col-xs-12'>
+      <div class='text-center' style='padding-top: 50px;'>
+        PAGE 6
+
+        <div style='margin-top: 200px;'>
+          <button class='btn btn-warning' ng-click='save();' ng-hide='fieldDisabled("save")'>Save application without submitting</button>
+          <button class='btn btn-default' ng-click='submit();'>Submit your Application</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 
 </div>

@@ -1,0 +1,55 @@
+
+
+
+<div class='container'>
+<form>
+
+  <div class='row' style='margin-top: 80px;'>
+    <div class='col-xs-3'></div>
+    <div class='col-xs-6' style='font-size: 20px; font-weight: bold;'>State of Hawai'i - Dept of Education Research</div>
+      <div class='col-xs-3'></div>
+  </div>
+
+  <div class='row'>
+
+    <div class='col-xs-3'></div>
+    <div class='col-xs-6' style='background-color: lightskyblue; height: 280px; padding-top: 60px;'>
+
+      <div class='row'>
+      <div class='col-xs-3'></div>
+      <div class='col-xs-6' style='font-size: 20px; font-weight: bold; padding-top: 3px;'>Login</div>
+      <div class='col-xs-3'></div>
+        </div>
+
+      <div class='row'>
+        <div class='col-xs-3'></div>
+        <div class='col-xs-6'><input ng-model='user.username' type='text' class='form-control' placeholder="Username"></div>
+        <div class='col-xs-3'></div>
+      </div>
+
+      <div class='row' style='margin-top: 5px;'>
+        <div class='col-xs-3'></div>
+        <div class='col-xs-6'><input ng-model='user.password' type='password' class='form-control' placeholder="Password"></div>
+        <div class='col-xs-3'></div>
+      </div>
+
+      <div class='row' style='margin-top: 5px;'>
+        <div class='col-xs-3'></div>
+        <div class='col-xs-6'><button type='submit' class='btn btn-primary form-control'  ng-click='login(user.username, user.password);'>Login</button></div>
+        <div class='col-xs-3'></div>
+      </div>
+
+      <div ng-show='invalidLogin' class='row' style='margin-top: 5px;'>
+        <div class='col-xs-3'></div>
+        <div class='col-xs-6' style='color: red;'>Invalid Username/Password</div>
+        <div class='col-xs-3'></div>
+      </div>
+
+    </div>
+
+  </div>
+</form>
+
+
+</div>
+

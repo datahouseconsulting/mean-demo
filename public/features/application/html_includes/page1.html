@@ -1,5 +1,91 @@
 <div ng-show='page.applicationSection == "1"' style='min-height: 500px;'>
-  page 1
+
+
+  <div class='row'>
+    <div class='col-xs-12'>
+
+  <div style='padding-left: 20px; margin-top: 15px;'>
+    Study number: <span ng-hide='application._id' style='color: purple;'>
+    0000000000000
+    </span>
+    <span ng-show='application._id' style='color: purple;'>
+      {{application._id}}
+
+    </span>
+  </div>
+
+    <div style='background-color: gray; height: 2px; margin-top: 5px;'>
+    </div>
+
+      <div class='text-center' style='color: red; margin-top: 5px; font-style: italic;'>
+        Fields preceded by (*) cannot be blank
+      </div>
+
+      <div style='background-color: gray; height: 2px; margin-top: 5px;'>
+      </div>
+      <div style='background-color:	#F0F5FF; height: 30px;'>
+        <div class='block' style='color: red; font-size: 35px; margin-top: -3px; padding-left: 20px;'>*</div>Title of the study (300 characters):
+      </div>
+      <div style='background-color: gray; height: 2px; margin-bottom: 5px;'>
+      </div>
+      <div>
+        <textarea ng-model='application.title' id='title' name='title' required ng-disabled='fieldDisabled("title")' class='form-control' style='height: 75px;'></textarea>
+      </div>
+      <div style='height: 20px;'>
+        <div ng-show='appForm.title.$dirty && appForm.title.$invalid' style='color: red; font-size: 15px; margin-left: 5px;'>
+          Title of the study is required.
+        </div>
+      </div>
+
+      <div style='background-color: gray; height: 2px; margin-top: 5px;'>
+      </div>
+      <div style='background-color:	#F0F5FF; height: 30px;'>
+        <div class='block' style='color: red; font-size: 35px; margin-top: -3px; padding-left: 20px;'>*</div>Objectives of the study (300 characters):
+      </div>
+      <div style='background-color: gray; height: 2px; margin-bottom: 5px;'>
+      </div>
+      <div>
+        <textarea ng-model='application.objective' id='objective' name='objective' ng-disabled='fieldDisabled("objective")' required class='form-control' style='height: 75px;'></textarea>
+      </div>
+      <div style='height: 20px;'>
+        <div ng-show='appForm.objective.$dirty && appForm.objective.$invalid' style='color: red; font-size: 15px; margin-left: 5px;'>
+          Objectives of the study required.
+        </div>
+      </div>
+
+
+      <div style='background-color: gray; height: 2px; margin-top: 5px;'>
+      </div>
+      <div style='background-color:	#F0F5FF; height: 30px;'>
+        <div class='block' style='color: red; font-size: 35px; margin-top: -3px; padding-left: 20px;'>*</div>General Description of the study (5000 characters):
+      </div>
+      <div style='background-color: gray; height: 2px; margin-bottom: 5px;'>
+      </div>
+      <div>
+        <textarea ng-model='application.description' id='description' name='description' ng-disabled='fieldDisabled("description")' required class='form-control' style='height: 250px;'></textarea>
+      </div>
+      <div style='height: 20px;'>
+      <div ng-show='appForm.description.$dirty && appForm.description.$invalid' style='color: red; font-size: 15px; margin-left: 5px;'>
+        General Description of the study is required.
+      </div>
+      </div>
+
+
+
+      <div class='text-center' style='padding-top: 50px; padding-bottom: 20px;'>
+
+        <button class='btn btn-warning' ng-click='save();' ng-hide='fieldDisabled("save")'>Save application without submitting</button>
+        <button class='btn btn-primary' ng-click='changeSection("2");'>Go to 2. Educational research justifiation >></button>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+<!--</form>-->
+
 
 
 </div>
